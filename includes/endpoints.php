@@ -118,7 +118,7 @@ function wp_webello_login_user($request) {
 
 // مسیر حفاظت‌شده
 function wp_webello_protected_route($request) {
-    $user_id = $request->get_attribute('user_id');
+    $user_id = $request->get_param('user_id');
     return array('message' => 'دسترسی مجاز است.', 'user_id' => $user_id);
 }
 
@@ -137,6 +137,6 @@ function wp_webello_check_token($request) {
         return new WP_Error('invalid_token', 'توکن نامعتبر است.', array('status' => 401));
     }
 
-    $request->set_attribute('user_id', $user_id);
+    $request->set_param('user_id', $user_id);
     return true;
 }
