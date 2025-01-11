@@ -9,6 +9,7 @@ function generate_qr_login() {
 	// تولید لینک یکتا برای QR Code
 	$unique_id = uniqid('qr_');
 	$login_url = site_url('/wp-json/wp-webello/v1/auth/' . $unique_id);
+	$logo_url = plugins_url('assets/logo.png', plugin_dir_path(dirname(__FILE__, 2))); // مسیر اصلی پلاگین
 
 	// ذخیره لینک یکتا در دیتابیس یا حافظه موقت
 	global $wpdb;
@@ -23,64 +24,114 @@ function generate_qr_login() {
 
 	// نمایش استایل صفحه
 	echo '<!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <title>QR Login</title>
-        <style>
-            body {
-                background-color: #000;
-                color: #fff;
-                font-family: Arial, sans-serif;
-                text-align: center;
-                margin: 0;
-                padding: 0;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-            }
-            .qr-container {
-                background: rgba(255, 255, 255, 0.1);
-                padding: 20px;
-                border-radius: 10px;
-                box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-            }
-            h1 {
-                font-size: 24px;
-                margin-bottom: 20px;
-                color: #FFCC3B;
-            }
-            canvas {
-                margin: 20px auto;
-            }
-        </style>
-        <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
-    </head>
-    <body>
-        <div class="qr-container">
-            <h1>Scan the QR Code to Log In</h1>
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=' . urlencode($login_url) . '&bgcolor=FFCC3B&color=000" alt="QR Code" width="300" height="300">
-
-            <p>Generated Link: <strong>' . $login_url . '</strong></p>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ورود با QR Code</title>
+    <style>
+        @font-face {
+            font-family: "IRANSans";
+            src: url("https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font/Vazir.woff2") format("woff2");
+        }
+        body {
+            background-color: #000;
+            color: #FFCC3B;
+            font-family: "IRANSans", Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .container {
+            background: #111;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(255, 204, 59, 0.4);
+            width: 90%;
+            max-width: 800px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .logo {
+            margin-bottom: 20px;
+        }
+        .logo img {
+            max-width: 150px;
+        }
+        .left-column, .right-column {
+            flex: 1;
+            padding: 20px;
+        }
+        .left-column {
+            border-right: 2px solid #FFCC3B;
+        }
+        h1 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #FFCC3B;
+        }
+        p {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #FFF;
+        }
+        .qr-code {
+            margin: 20px auto;
+        }
+        .highlight {
+            color: #FFCC3B;
+            font-weight: bold;
+        }
+        footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #888;
+        }
+        footer a {
+            color: #FFCC3B;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-column">
+            <div class="logo">
+                <img src="' . $logo_url . '" alt="لوگوی شرکت">
+            </div>
+            <h1>آموزش استفاده از QR Code</h1>
+            <p>1. اپلیکیشن مخصوص شرکت را دانلود و نصب کنید.</p>
+            <p>2. اپلیکیشن را باز کرده و گزینه <span class="highlight">اسکن QR Code</span> را انتخاب کنید.</p>
+            <p>3. دوربین خود را روی QR Code قرار داده و منتظر ورود خودکار بمانید.</p>
+            <p>برای دانلود اپلیکیشن، <a href="https://example.com/app" target="_blank">اینجا</a> کلیک کنید.</p>
         </div>
-        <script>
-            // بررسی وضعیت لاگین
-            setInterval(function() {
-                fetch("' . site_url('/wp-json/wp-webello/v1/auth/status?unique_id=') . $unique_id . '")
-                    .then(response => response.json())
-                    .then(data => {
-                        console.log("Response from status API:", data); // لاگ وضعیت
-                        if (data.logged_in) {
-                            window.location.href = "' . site_url('/wp-admin') . '";
-                        }
-                    })
-                    .catch(error => {
-                        console.error("Error fetching login status:", error); // خطا در درخواست
-                    });
-            }, 5000);
-        </script>
-    </body>
-    </html>';
+        <div class="right-column">
+            <h1>ورود با QR Code</h1>
+            <div class="qr-code">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=' . urlencode($login_url) . '" alt="QR Code" width="200" height="200">
+            </div>
+            <p>QR Code بالا را اسکن کنید تا وارد حساب کاربری شوید.</p>
+            <p>'. $login_url .'</p>
+        </div>
+    </div>
+    <script>
+        setInterval(function() {
+            fetch("' . site_url('/wp-json/wp-webello/v1/auth/status?unique_id=') . $unique_id . '")
+                .then(response => response.json())
+                .then(data => {
+                    if (data.logged_in) {
+                        window.location.href = "' . site_url('/wp-admin') . '";
+                    }
+                });
+        }, 5000);
+    </script>
+</body>
+</html>';
 
 	exit;
 }
