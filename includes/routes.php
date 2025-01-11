@@ -5,9 +5,12 @@ if (!defined('ABSPATH')) {
 include 'login/login.php';
 include 'login/auth.php';
 include 'post/post.php';
+include 'login/qr/qr.php';
 function wp_webello_register_auth_routes() {
     // مسیر ورود
-    register_rest_route('wp-webello/v1', '/login', array('methods' => 'POST', 'callback' => 'wp_webello_login_user', 'permission_callback' => '__return_true',));
+	register_rest_route('wp-webello/v1', '/login', array('methods' => 'POST', 'callback' => 'wp_webello_login_user', 'permission_callback' => '__return_true',));
+	register_rest_route('wp-webello/v1', '/auth/(?P<unique_id>[a-zA-Z0-9_\-]+)', array('methods' => 'POST', 'callback' => 'handle_qr_auth', 'permission_callback' => '__return_true',));
+	register_rest_route('wp-webello/v1', '/auth/status', array( 'methods' => 'GET', 'callback' => 'check_login_status', 'permission_callback' => '__return_true', ));
     register_rest_route('wp-webello/v1/get', '/info', array('methods' => 'GET', 'callback' => 'wp_webello_get_site_info', 'permission_callback' => 'wp_webello_check_token',));
     register_rest_route('wp-webello/v1/get', '/posts', array('methods' => 'GET', 'callback' => 'wp_webello_get_posts', 'permission_callback' => 'wp_webello_check_token',));
     register_rest_route('wp-webello/v1/get', '/categories', array('methods' => 'GET', 'callback' => 'wp_webello_get_categories', 'permission_callback' => 'wp_webello_check_token',));
