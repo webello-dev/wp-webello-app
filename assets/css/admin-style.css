@@ -1,0 +1,146 @@
+/* تنظیمات کلی */
+/*@font-face {*/
+/*    font-family: 'CustomFont';*/
+/*    src: url('../fonts/your-font.woff2') format('woff2'),*/
+/*    url('../fonts/your-font.woff') format('woff');*/
+/*    font-weight: normal;*/
+/*    font-style: normal;*/
+/*}*/
+
+
+/* تنظیمات کلی بدنه و پیشخوان */
+body, #wpwrap {
+    background-color: #000 !important;
+    color: #ffffff !important; /* تغییر رنگ متن‌ها به سفید */
+    font-family: 'CustomFont', sans-serif; /* فونت سفارشی */
+}
+.wrap {
+    margin-top: 38px;
+}
+/* تغییر رنگ متن‌ها */
+.wp-admin * {
+    color: #ffffff !important; /* تغییر رنگ تمام متن‌ها به سفید */
+}
+.show-settings,#screen-meta{
+    background: rgba(0, 0, 0, 0.6) !important;
+}
+.wrap, .postbox, .inside,.notice,.welcome-panel-column-container {
+    background: rgba(0, 0, 0, 0.6) !important; /* پس‌زمینه سیاه شفاف */
+    backdrop-filter: blur(10px); /* افکت تاری (Blur) */
+    -webkit-backdrop-filter: blur(10px); /* برای پشتیبانی در مرورگرهای قدیمی‌تر */
+    border-radius: 10px; /* گوشه‌های گرد */
+    padding: 20px; /* فضای داخلی کانتینر */
+    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.1); /* سایه نرم */
+}
+
+/* تغییر استایل منوی مدیریت */
+#adminmenu, #adminmenu .wp-submenu, #adminmenuback, #adminmenuwrap {
+    background: rgba(0, 0, 0, 0.6) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+}
+
+/* تغییر استایل لینک‌ها در منو */
+#adminmenu a {
+    color: #FFCC3B !important; /* رنگ طلایی برای لینک‌ها */
+    font-weight: bold;
+}
+
+/* تغییر استایل آیتم‌های منوی فعال */
+#adminmenu .wp-has-current-submenu a.wp-has-current-submenu {
+    background: rgba(255, 204, 59, 0.2) !important;
+    border-left: 4px solid #FFCC3B;
+}
+
+/* شیشه‌ای کردن دکمه‌ها */
+.wp-core-ui .button-primary {
+    background: linear-gradient(135deg, #FFCC3B, #ff9900) !important;
+    color: #000 !important;
+    border: none !important;
+    box-shadow: 0px 4px 10px rgba(255, 204, 59, 0.3);
+    transition: all 0.3s ease-in-out;
+}
+
+/* تغییر استایل دکمه در حالت hover */
+.wp-core-ui .button-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 15px rgba(255, 204, 59, 0.5);
+}
+
+/* شیشه‌ای کردن فوتر پنل */
+#wpfooter {
+    background: rgba(0, 0, 0, 0.6) !important;
+    color: #FFCC3B !important;
+}
+
+/* استایل‌های منوی مدیریت */
+#adminmenu, #adminmenu .wp-submenu, #adminmenuback, #adminmenuwrap {
+    background: rgba(0, 0, 0, 0.6) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+}
+
+/* لینک‌های منو */
+#adminmenu a {
+    color: #FFCC3B !important;
+    font-weight: bold;
+}
+
+/* تغییر استایل آیتم‌های فعال */
+#adminmenu .wp-has-current-submenu a.wp-has-current-submenu {
+    background: rgba(255, 204, 59, 0.2) !important;
+    border-left: 4px solid #FFCC3B;
+}
+
+/* دکمه‌ها و فیلدهای ورود */
+.wp-core-ui .button-primary {
+    background: linear-gradient(135deg, #FFCC3B, #ff9900) !important;
+    color: #000 !important;
+    border: none !important;
+    box-shadow: 0px 4px 10px rgba(255, 204, 59, 0.3);
+    transition: all 0.3s ease-in-out;
+}
+.wp-core-ui .button-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 15px rgba(255, 204, 59, 0.5);
+}
+
+/* کادر‌های مدیریت */
+.wrap, .postbox {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.1);
+}
+
+/* فوتر پنل */
+#wpfooter {
+    background: rgba(0, 0, 0, 0.6) !important;
+    color: #FFCC3B !important;
+}
+
+
+/* استایل لوگو در نوار ابزار */
+#wpadminbar #webello_logo img {
+    max-width: 80px;
+    height: auto;
+    border-radius: 5px;
+    margin: 5px 10px;  /* فاصله از سایر آیتم‌ها */
+}
+
+#wpadminbar #webello_logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#wpadminbar .webello-logo-bar {
+    padding: 0 10px;
+}
+#wp-admin-bar-wp-logo {
+    display: none;
+}

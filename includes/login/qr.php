@@ -1,4 +1,23 @@
 <?php
+register_activation_hook( __FILE__, 'create_qr_login_table' );
+function create_qr_login_table() {
+	global $wpdb;
+	$table_name = $wpdb->prefix . 'qr_login_links';
+
+	$charset_collate = $wpdb->get_charset_collate();
+
+	$sql = "CREATE TABLE $table_name (
+        id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+        unique_id VARCHAR(255) NOT NULL,
+        created_at DATETIME NOT NULL,
+        is_used TINYINT(1) DEFAULT 0,
+        is_login TINYINT(1) DEFAULT 0,
+        PRIMARY KEY (id)
+    ) $charset_collate;";
+
+	require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+	dbDelta( $sql );
+}
 
 add_action( 'login_form', 'generate_qr_login' );
 
