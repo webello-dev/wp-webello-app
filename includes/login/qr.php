@@ -138,17 +138,22 @@ function generate_qr_login() {
             <p>'. $login_url .'</p>
         </div>
     </div>
-    <script>
-        setInterval(function() {
-            fetch("' . site_url('/wp-json/wp-webello/v1/auth/status?unique_id=') . $unique_id . '")
-                .then(response => response.json())
-                .then(data => {
-                    if (data.logged_in) {
-                        window.location.href = "' . site_url('/wp-admin') . '";
-                    }
-                });
-        }, 5000);
-    </script>
+<script>
+    var intervalId = setInterval(function() {
+        fetch("' . site_url('/wp-json/wp-webello/v1/auth/status?unique_id=') . $unique_id . '")
+            .then(response => response.json())
+            .then(data => {
+                if (data.logged_in) {
+                    // وقتی که وضعیت ورود تایید شد، به صفحه ادمین بروید
+                    window.location.href = "' . site_url('/wp-admin') . '";
+
+                    // متوقف کردن حلقه setInterval
+                    clearInterval(intervalId);
+                }
+            });
+    }, 5000);  // هر 5 ثانیه یکبار چک می‌کند
+</script>
+
 </body>
 </html>';
 
