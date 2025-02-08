@@ -1,4 +1,4 @@
 <?php
-include 'create.php';
-include 'update.php';
-include 'delete.php';
+include 'wp-create.php';
+include 'wp-update.php';
+include 'wp-delete.php';

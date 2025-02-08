@@ -11,8 +11,8 @@ include 'category/init.php';
 
 
 function wp_webello_register_auth_routes() {
-    // مسیر ورود
-	register_rest_route('wp-webello/v1',            '/login', array('methods' => 'POST', 'callback' => 'wp_webello_login_user', 'permission_callback' => '__return_true',));
+
+	register_rest_route('wp-webello/v1',            '/login', array('methods' => 'POST', 'callback' => 'wp_webello_login_user', 'permission_callback' => '__return_true'));
 	register_rest_route('wp-webello/v1',            '/auth/(?P<unique_id>[a-zA-Z0-9_\-]+)', array('methods' => 'POST', 'callback' => 'handle_qr_auth', 'permission_callback' => '__return_true',));
 	register_rest_route('wp-webello/v1',            '/auth/status', array( 'methods' => 'GET', 'callback' => 'check_login_status', 'permission_callback' => '__return_true', ));
 
@@ -33,6 +33,7 @@ function wp_webello_register_auth_routes() {
 	register_rest_route('wp-webello/v1/user',       '/create', array( 'methods'  => 'POST', 'callback' => 'wp_webello_create_user', 'permission_callback' => 'wp_webello_check_token', ));
 	register_rest_route('wp-webello/v1/user',       '/update', array( 'methods'  => 'POST', 'callback' => 'wp_webello_update_user', 'permission_callback' => 'wp_webello_check_token', ));
 	register_rest_route('wp-webello/v1/user',       '/delete', array( 'methods'  => 'DELETE', 'callback' => 'wp_webello_delete_user', 'permission_callback' => 'wp_webello_check_token', ));
+
 }
 add_action('rest_api_init', 'wp_webello_register_auth_routes');
 
