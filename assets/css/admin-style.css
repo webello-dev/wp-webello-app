@@ -123,7 +123,7 @@ input:focus, textarea:focus, select:focus {
 }
 
 /* استایل فوتر پنل */
-#wpfooter {
+#wpfooter,table.widefat {
     background: rgba(0, 0, 0, 0.6) !important;
     color: #FFCC3B !important;
 }
@@ -272,4 +272,44 @@ input:focus, textarea:focus, select:focus {
 }
 .wp-core-ui .button{
     padding: 0px 16px !important;
+}
+/*پلاگین ها*/
+.plugins tr ,.plugins .active td,.plugins .active th,.striped>tbody>:nth-child(odd),.nav-tab-active,.nav-tab,#e-admin-top-bar-root{
+    background: #2d2d2d !important;
+}
+.widefat thead tr th ,.widefat p,.importer-titl,.widefat tfoot tr th{
+    color: #FFFFFF;
+}
+.plugins .active th.check-column ,.plugin-update-tr.active td{
+    border-right: 4px solid #FFC107;
+}
+.wrap .page-title-action,.elementor-button.e-primary {
+    color: #FFC107 !important;
+    border-color: #FFC107 !important;
+    background: #2d2d2d !important;
+    background-color: #2d2d2d !important;
+}
+/*افزودن افزونه*/
+.wp-filter ,.plugin-card,.plugin-card-bottom,#plugin-information-tabs,#plugin-information .fyi,#plugin-information-content,#plugin-information-footer,.popular-tags,p.popular-tags{
+    background: #191919 !important;
+}
+.filter-links li>a ,.filter-links .current{
+    border-bottom: 4px solid #FFC107;
+}
+#plugin-information .fyi strong,#plugin-information .fyi h3,#plugin-information .fyi,.plugin-card-bottom,.wp-filter{
+    color: #FFFFFF;
+}
+/*کتاب خونه اپلود*/
+.media-modal-content,.edit-attachment-frame .attachment-info,.media-frame-content,.dZjgqa {
+    background: #191919 !important;
+}
+input[type=text]{
+    color: #FFFFFF;
+}
+.wp-core-ui .attachment .filename  {
+    background: #1a1a1a !important;
+}
+/*افزودن*/
+#major-publishing-actions,#wp-content-editor-tools,div.mce-toolbar-grp{
+    background: #1a1a1a !important;
 }
