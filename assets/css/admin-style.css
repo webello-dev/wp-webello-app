@@ -1,8 +1,15 @@
 /* تنظیمات کلی و فونت */
+@font-face {
+    font-family: 'CustomFont';
+    src: url('../font/IRANSM.woff2') format('woff2');
+}
+/** {*/
+/*    font-family: 'CustomFont', sans-serif !important;*/
+/*}*/
 body, #wpwrap {
-    background-color: #000 !important;
-    color: #FFD700 !important; /* رنگ متن زرد */
-    font-family: 'CustomFont', sans-serif;
+    background-color: #181818 !important;
+    color: #ffffff !important;
+    font-family: 'CustomFont', sans-serif !important;
     line-height: 1.6;
     margin: 0;
     padding: 0;
@@ -10,12 +17,14 @@ body, #wpwrap {
 
 /* تنظیمات کلی برای متن‌ها */
 h1, h2, h3, h4, h5, h6 {
-    color: #FFD700;
+    font-family: 'CustomFont', sans-serif !important;
+    color: #ffffff;
     font-weight: bold;
-    text-align: center;
+    /*text-align: center;*/
 }
 
 p {
+    font-family: 'CustomFont', sans-serif !important;
     font-size: 1rem;
     margin: 10px 0;
     text-align: justify;
@@ -23,9 +32,9 @@ p {
 
 /* لینک‌ها */
 a {
+    font-family: 'CustomFont', sans-serif !important;
     color: #FFCC3B !important;
     text-decoration: none;
-    font-weight: bold;
     transition: all 0.3s ease;
 }
 
@@ -42,8 +51,9 @@ a:active {
 
 /* دکمه‌ها */
 button, .btn, input[type="submit"] {
+    font-family: 'CustomFont', sans-serif !important;
     background: linear-gradient(135deg, #FFCC3B, #ff9900) !important;
-    color: #000 !important;
+    color: #181818 !important;
     padding: 0px 0px !important;
     border: none;
     font-weight: bold;
@@ -59,6 +69,7 @@ button:hover, .btn:hover, input[type="submit"]:hover {
 }
 
 input[type="submit"]:disabled {
+    font-family: 'CustomFont', sans-serif !important;
     background: rgba(255, 204, 59, 0.5);
     color: #ccc;
     cursor: not-allowed;
@@ -67,7 +78,8 @@ input[type="submit"]:disabled {
 
 /* فیلدهای ورودی */
 input, textarea, select {
-    background: rgba(255, 255, 255, 0.1) !important;
+    font-family: 'CustomFont', sans-serif !important;
+    background: #191919 !important;
     border: 2px solid rgba(255, 255, 255, 0.3);
     color: #ffffff;
     padding: 12px 15px;
@@ -77,23 +89,25 @@ input, textarea, select {
 }
 
 input:focus, textarea:focus, select:focus {
+    font-family: 'CustomFont', sans-serif !important;
     border-color: #FFCC3B;
     box-shadow: 0px 0px 8px rgba(255, 204, 59, 0.7);
     outline: none;
 }
 
 /* پس‌زمینه شیشه‌ای (Blur) */
-.wrap, .postbox, .inside, .notice, .welcome-panel-column-container, .wp-core-ui .button-primary, #contextual-help-back {
-    background: rgba(0, 0, 0, 0.6) !important;
+.wrap, .postbox, .inside, .notice, .welcome-panel-column-container, .wp-core-ui .button-primary, #contextual-help-back,#screen-meta {
+    background: rgb(25 25 25 / 75%) !important;
     box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     border-radius: 10px;
     padding: 20px;
 }
 
+
 /* منوی مدیریت وردپرس */
 #adminmenu, #adminmenu .wp-submenu, #adminmenuback, #adminmenuwrap {
-    background: rgba(0, 0, 0, 0.6) !important;
+    background: #000000 !important;
     backdrop-filter: blur(10px);
     border-radius: 10px;
 }
@@ -216,4 +230,46 @@ input:focus, textarea:focus, select:focus {
         color: #FFD700;
         display: inline-block;
     }
+}
+/*صفحه اصلی */
+.wrap {
+    margin: 35px 2px 0 20px !important;
+}
+.contextual-help-tabs .active {
+    background: #000000 !important;
+    border-right: 2px solid #FFC107 !important;
+}
+.show-settings{
+    padding: 3px 16px 3px 6px !important;
+}
+.notice button:not(.notice-dismiss) {
+    padding: 3px 16px !important;
+}
+.notice p ,#dashboard-widgets h3,.e-dashboard-overview , li,.gary{
+    color: #FFFFFF !important;
+}
+.e-button,.e-notice:before{
+    background-color: #ffffff00 !important;
+}
+
+.wp-core-ui .button,#dashboard-widgets .community-events-cancel.button-link{
+    color: #FFC107 !important;
+    border-color: #FFC107 !important;
+    background: #2d2d2d !important;
+}
+#community-events-submit ,.wp-core-ui .button-primary{
+    padding: 0 16px !important;
+}
+#dashboard-widgets .community-events-cancel.button-link{
+    padding: 0 10px !important;
+}
+/*نوشته ها */
+.widefat td,.wp-core-ui select {
+    color: #FFFFFF;
+}
+.wp-core-ui select:hover {
+    color: #FFC107!important;
+}
+.wp-core-ui .button{
+    padding: 0px 16px !important;
 }
